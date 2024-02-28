@@ -93,7 +93,7 @@ const Page = () => {
   if (yearElement.current) {
     const date = new Date();
     const year = date.getFullYear();
-    yearElement.current.textContent = year;
+    yearElement.current.textContent = String(year);
   }
 
   const layoutStyle = (tabValue: TabState) => css`
@@ -101,9 +101,11 @@ const Page = () => {
     width: 100%;
     padding: 40px 64px;
     gap: 24px 40px;
-    grid-template: ${tabValue === TAB_NAME.Changes
-      ? '"graph graph" auto "table table" auto / calc(100% - 464px) 424px'
-      : '"graph filter" auto "table table" auto / calc(100% - 464px) 424px'};
+    grid-template: ${
+      tabValue === TAB_NAME.Changes
+        ? '"graph graph" auto "table table" auto / calc(100% - 464px) 424px'
+        : '"graph filter" auto "table table" auto / calc(100% - 464px) 424px'
+    };
   `;
 
   const graphStyle = css`
@@ -125,7 +127,7 @@ const Page = () => {
         <AppBar position="static" sx={{ p: 1 }}>
           <Toolbar>
             <Typography variant="h1" component="h1">
-              タイトル
+              日本の都道府県別人口データ
             </Typography>
           </Toolbar>
         </AppBar>
